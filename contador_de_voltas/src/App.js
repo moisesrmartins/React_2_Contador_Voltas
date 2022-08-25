@@ -22,12 +22,12 @@ const Button = (props) => <button onClick = {props.onClick}>{props.text}</button
 
 function App() {
   const [numLap, setNumLap] = useState(10);
-  const [run, setRun] =useState(false);
+  const [Running, setRunning] =useState(false);
   const [time, setTime] = useState(0);
 
   useEffect(() => {
     let timer =null
-    if (run) {
+    if (Running) {
       timer = setInterval(() => {
         setTime(old => old+ 1)
       }, 1000);
@@ -37,10 +37,10 @@ function App() {
         clearInterval(timer)
       };
     };
-  }, [run]);
+  }, [Running]);
 
-  const toggleRun = () => {
-    setRun(!run)
+  const toggleRunning = () => {
+    setRunning(!Running)
   };
   const increment = () => {
     setNumLap(numLap + 1)
@@ -55,7 +55,7 @@ function App() {
       <Button text = "+" onClick = {increment}/>
       <Button text = "-" onClick = {decrement}/>
       <ShowTime time = {time}/>
-      <Button onClick = {toggleRun} text = "Start"/>
+      <Button onClick = {toggleRunning} text = "Start"/>
       <Button text = "Restart"/>
     </div>
   );
