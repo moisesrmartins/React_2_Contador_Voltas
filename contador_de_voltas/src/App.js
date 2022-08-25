@@ -21,20 +21,32 @@ const ShowTime = (props) => {
 const Button = (props) => <button onClick = {props.onClick}>{props.text}</button>;
 
 function App() {
-const [numLap, setNumLap] = useState(10)
-  const [time, setTime] = useState(0)
+  const [numLap, setNumLap] = useState(10);
+  const [run, setRun] =useState(false);
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
-      console.log('call')
-    }, 1000);
-  }, []);
+    let timer =null
+    if (run) {
+      timer = setInterval(() => {
+        setTime(old => old+ 1)
+      }, 1000);
+    };
+    return() => {
+      if (timer) {
+        clearInterval(timer)
+      };
+    };
+  }, [run]);
 
+  const toggleRun = () => {
+    setRun(!run)
+  };
   const increment = () => {
-  setNumLap(numLap + 1)
+    setNumLap(numLap + 1)
   };
   const decrement = () => {
-  setNumLap(numLap - 1)
+    setNumLap(numLap - 1)
   };
 
   return (
@@ -43,10 +55,10 @@ const [numLap, setNumLap] = useState(10)
       <Button text = "+" onClick = {increment}/>
       <Button text = "-" onClick = {decrement}/>
       <ShowTime time = {time}/>
-      <Button text = "Start"/>
+      <Button onClick = {toggleRun} text = "Start"/>
       <Button text = "Restart"/>
     </div>
   );
-}
+};
 
 export default App;
