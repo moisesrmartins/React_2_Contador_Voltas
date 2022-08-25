@@ -1,0 +1,15 @@
+@import url('//fonts.googleapis.com/css?family=Raleway&display=swap');
+
+* {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+.laps {
+    font-size: 64px;
+    font-weight: bold;
+}
+
+.laps-span {
+    font-size: 288px;
+}

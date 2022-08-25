@@ -1,18 +1,19 @@
 import React, {useState, useEffect} from "react";
+import "./style.css";
 import ShowLaps from "./ShowLaps";
 import ShowTime from "./ShowTime";
 import Button from "./Button";
 
 function App() {
   const [numLap, setNumLap] = useState(0);
-  const [Running, setRunning] =useState(false);
+  const [Running, setRunning] = useState(false);
   const [time, setTime] = useState(0);
 
   useEffect(() => {
-    let timer =null
+    let timer = null
     if (Running) {
       timer = setInterval(() => {
-        setTime(old => old+ 1)
+        setTime(old => old + 1)
       }, 1000);
     };
     return() => {
