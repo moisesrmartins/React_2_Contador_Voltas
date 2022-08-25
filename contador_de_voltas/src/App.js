@@ -10,9 +10,14 @@ const ShowLaps = (props) => {
   );
 };
 const ShowTime = (props) => {
+  const time = props.time
+  const minutes = Math.round(time / 60)
+  const seconds = time % 60
+  const minutesStr = minutes < 10 ? '0' + minutes : minutes
+  const secondsStr = seconds < 10 ? '0' + seconds : seconds
   return (
     <p>
-      {props.time}
+      {`${minutes}:${seconds}`}
       <br/>
       Average time per lap
     </p>
@@ -21,7 +26,7 @@ const ShowTime = (props) => {
 const Button = (props) => <button onClick = {props.onClick}>{props.text}</button>;
 
 function App() {
-  const [numLap, setNumLap] = useState(10);
+  const [numLap, setNumLap] = useState(0);
   const [Running, setRunning] =useState(false);
   const [time, setTime] = useState(0);
 
@@ -54,7 +59,10 @@ function App() {
       <ShowLaps laps = {numLap}/>
       <Button text = "+" onClick = {increment}/>
       <Button text = "-" onClick = {decrement}/>
-      <ShowTime time = {time}/>
+      {
+        numLap > 0 &&
+        <ShowTime time = {Math.round(time/numLap)}/>
+      }
       <Button onClick = {toggleRunning} text = "Start"/>
       <Button text = "Restart"/>
     </div>
