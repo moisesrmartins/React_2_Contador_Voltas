@@ -1,13 +1,19 @@
-import React from 'react';
+import React from "react";
+
+const ShowLaps = (props) => {
+  return (
+    <p>
+      {props.laps}
+      <br/>
+      Laps
+    </p>
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      <p>
-        10
-        <br/>
-        Turns
-      </p>
+      <ShowLaps laps="10"/>
       <button>+</button>
       <button>-</button>
       <p>
