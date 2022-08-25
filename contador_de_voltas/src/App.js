@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 const ShowLaps = (props) => {
   return (
@@ -21,14 +21,20 @@ const ShowTime = (props) => {
 const Button = (props) => <button onClick = {props.onClick}>{props.text}</button>;
 
 function App() {
-  let numLap = 10
+const [numLap, setNumLap] = useState(10)
+  const [time, setTime] = useState(0)
+
+  useEffect(() => {
+    setInterval(() => {
+      console.log('call')
+    }, 1000);
+  }, []);
+
   const increment = () => {
-    numLap++
-    console.log('increment')
+  setNumLap(numLap + 1)
   };
   const decrement = () => {
-    numLap--
-    console.log('decrement')
+  setNumLap(numLap - 1)
   };
 
   return (
@@ -36,7 +42,7 @@ function App() {
       <ShowLaps laps = {numLap}/>
       <Button text = "+" onClick = {increment}/>
       <Button text = "-" onClick = {decrement}/>
-      <ShowTime time = "01:30"/>
+      <ShowTime time = {time}/>
       <Button text = "Start"/>
       <Button text = "Restart"/>
     </div>
