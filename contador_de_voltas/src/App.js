@@ -30,7 +30,9 @@ function App() {
     setNumLap(numLap + 1)
   };
   const decrement = () => {
-    setNumLap(numLap - 1)
+    if (numLap > 0) {
+      setNumLap(numLap - 1)
+    };
   };
   const reset = () => {
     setNumLap(0)
@@ -46,7 +48,7 @@ function App() {
         numLap > 0 &&
         <ShowTime time = {Math.round(time/numLap)}/>
       }
-      <Button onClick = {toggleRunning} text = "Start"/>
+      <Button onClick = {toggleRunning} text = {Running ? "Pause" : "Start"}/>
       <Button onClick = {reset} text = "Restart"/>
     </div>
   );
