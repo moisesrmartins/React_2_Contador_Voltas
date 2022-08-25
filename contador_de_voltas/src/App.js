@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
 import ShowLaps from "./ShowLaps";
 import ShowTime from "./ShowTime";
-
-const Button = (props) => <button onClick = {props.onClick}>{props.text}</button>;
+import Button from "./Button";
 
 function App() {
   const [numLap, setNumLap] = useState(0);
