@@ -13,3 +13,10 @@
 .laps-span {
     font-size: 288px;
 }
+
+button {
+    background-color: #f9f9f9;
+    border: 1px solid black;
+    font-size: 18px;
+    padding: 22px;
+}
