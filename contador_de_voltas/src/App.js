@@ -1,20 +1,7 @@
 import React, {useState, useEffect} from "react";
 import ShowLaps from "./ShowLaps";
+import ShowTime from "./ShowTime";
 
-const ShowTime = (props) => {
-  const time = props.time
-  const minutes = Math.round(time / 60)
-  const seconds = time % 60
-  const minutesStr = minutes < 10 ? '0' + minutes : minutes
-  const secondsStr = seconds < 10 ? '0' + seconds : seconds
-  return (
-    <p>
-      {`${minutes}:${seconds}`}
-      <br/>
-      Average time per lap
-    </p>
-  );
-};
 const Button = (props) => <button onClick = {props.onClick}>{props.text}</button>;
 
 function App() {
