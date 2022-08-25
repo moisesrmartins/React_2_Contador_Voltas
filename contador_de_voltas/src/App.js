@@ -18,15 +18,24 @@ const ShowTime = (props) => {
     </p>
   );
 };
-
-const Button = (props) => <button>{props.text}</button>;
+const Button = (props) => <button onClick = {props.onClick}>{props.text}</button>;
 
 function App() {
+  let numLap = 10
+  const increment = () => {
+    numLap++
+    console.log('increment')
+  };
+  const decrement = () => {
+    numLap--
+    console.log('decrement')
+  };
+
   return (
     <div>
-      <ShowLaps laps = "10"/>
-      <Button text = "+"/>
-      <Button text = "-"/>
+      <ShowLaps laps = {numLap}/>
+      <Button text = "+" onClick = {increment}/>
+      <Button text = "-" onClick = {decrement}/>
       <ShowTime time = "01:30"/>
       <Button text = "Start"/>
       <Button text = "Restart"/>
