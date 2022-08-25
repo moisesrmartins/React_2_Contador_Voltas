@@ -20,3 +20,8 @@ button {
     font-size: 18px;
     padding: 22px;
 }
+
+.time-span {
+    font-weight: bold;
+    font-size: 64px;
+}
