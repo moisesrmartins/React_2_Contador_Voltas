@@ -9,7 +9,6 @@ const ShowLaps = (props) => {
     </p>
   );
 };
-
 const ShowTime = (props) => {
   return (
     <p>
@@ -20,15 +19,17 @@ const ShowTime = (props) => {
   );
 };
 
+const Button = (props) => <button>{props.text}</button>;
+
 function App() {
   return (
-    <div className="App">
+    <div>
       <ShowLaps laps = "10"/>
-      <button>+</button>
-      <button>-</button>
+      <Button text = "+"/>
+      <Button text = "-"/>
       <ShowTime time = "01:30"/>
-      <button>Start</button>
-      <button>Restart</button>
+      <Button text = "Start"/>
+      <Button text = "Restart"/>
     </div>
   );
 }
