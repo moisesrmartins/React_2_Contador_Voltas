@@ -40,8 +40,8 @@ function App() {
   return (
     <div>
       <ShowLaps laps = {numLap}/>
-      <Button text = "+" onClick = {increment}/>
-      <Button text = "-" onClick = {decrement}/>
+      <Button text = "+" className="bigger" onClick = {increment}/>
+      <Button text = "-" className="bigger" onClick = {decrement}/>
       {
         numLap > 0 &&
         <ShowTime time = {Math.round(time/numLap)}/>
