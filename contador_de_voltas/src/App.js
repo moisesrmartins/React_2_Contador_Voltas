@@ -1,14 +1,6 @@
 import React, {useState, useEffect} from "react";
+import ShowLaps from "./ShowLaps";
 
-const ShowLaps = (props) => {
-  return (
-    <p>
-      {props.laps}
-      <br/>
-      Laps
-    </p>
-  );
-};
 const ShowTime = (props) => {
   const time = props.time
   const minutes = Math.round(time / 60)
